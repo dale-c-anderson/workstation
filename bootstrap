@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# See ./README.md
+
+set -eu -o pipefail
+
+function main () {
+  cd "$HOME"
+  apt install software-properties-common
+  apt-add-repository --yes --update ppa:ansible/ansible
+  apt-get update
+  apt-get install ansible git
+  mkdir -pv repos/github.com/
+  cd !$
+  git clone https://github.com/dale-c-anderson/workstation
+  cd workstation
+  ansible-playbook playbooks/main.yml
+}
+
+main "$@"

@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  connection: local
+  become: true
+  gather_facts: true
+  roles: []
+  tasks:
+    - name: Install packages
+      apt:
+        name:
+          - curl
+        state: present
+        update_cache: true
