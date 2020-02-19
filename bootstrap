@@ -6,10 +6,10 @@ set -eu -o pipefail
 
 function main () {
   cd "$HOME"
-  apt install software-properties-common
+  apt-get install -yq software-properties-common
   apt-add-repository --yes --update ppa:ansible/ansible
   apt-get update
-  apt-get install ansible git
+  apt-get install -yq ansible git
   mkdir -pv repos/github.com/
   cd !$
   git clone https://github.com/dale-c-anderson/workstation
