@@ -1,5 +1,5 @@
 # workstation
-install everything i need to start working
+Install everything I need to start being productive.
 
 
 ## Quicik start:

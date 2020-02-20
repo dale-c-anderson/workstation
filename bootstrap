@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# See ./README.md
+# Just enough bash to get ansible running. See ./README.md
 
 set -eu -o pipefail
 
