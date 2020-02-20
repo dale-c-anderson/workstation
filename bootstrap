@@ -10,8 +10,8 @@ function main () {
   apt-add-repository --yes --update ppa:ansible/ansible
   apt-get update
   apt-get install -yq ansible git
-  mkdir -pv repos/github.com/
-  cd !$
+  mkdir -pv repos/github.com/dale-c-anderson
+  cd repos/github.com/dale-c-anderson
   git clone https://github.com/dale-c-anderson/workstation
   cd workstation
   ansible-playbook playbooks/main.yml
