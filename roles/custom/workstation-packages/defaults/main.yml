@@ -2,6 +2,7 @@
 wkstn_apt_packages:
   - curl
   - tilix
+  - gitk
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - src: https://atom.io/download/deb
