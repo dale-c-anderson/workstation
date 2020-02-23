@@ -3,11 +3,8 @@
   connection: local
   become: true
   gather_facts: true
-  roles: []
-  tasks:
-    - name: Install packages
-      apt:
-        name:
-          - curl
-        state: present
-        update_cache: true
+  roles:
+    - name: Install software on my workstation
+      role: roles/custom/workstation-packages
+
+  tasks: []

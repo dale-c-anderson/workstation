@@ -1,0 +1,17 @@
+---
+- name: Install packages from apt
+  apt:
+    name: "{{ wkstn_apt_packages }}"
+    state: present
+    update_cache: true
+
+- name: Install packages from remote debs
+  apt:
+    deb: "{{ item.src }}"
+  with_items: "{{ wkstn_remote_debs }}"
+
+- name: Install packages from snap
+  snap:
+    name: "{{ item.name }}"
+    classic: "{{ item.classic }}"
+  with_items: "{{ wkstn_snap_packages }}"
