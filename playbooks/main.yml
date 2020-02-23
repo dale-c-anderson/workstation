@@ -4,7 +4,14 @@
   become: true
   gather_facts: true
   roles:
+    - name: Install sysadmin utils
+      role: contrib/acromedia.essentials
+      tags:
+        - essentials
+
     - name: Install software on my workstation
       role: custom/workstation-packages
+      tags:
+        - workstation
 
   tasks: []
