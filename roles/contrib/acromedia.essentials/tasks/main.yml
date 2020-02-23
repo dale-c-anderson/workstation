@@ -1,0 +1,21 @@
+---
+- name: Include Ubuntu tasks
+  include_tasks: "ubuntu.yml"
+  when: ansible_os_family == 'Debian'
+
+- name: Include Redhat tasks
+  include_tasks: "redhat.yml"
+  when: ansible_os_family == 'RedHat'
+
+- name: Make sure bash history records and displays timestamps by default
+  # Tested on Red Hat + Ubuntu
+  copy:
+    dest: /etc/profile.d/acromedia.bash-history-timestamps.sh
+    force: true
+    backup: false
+    owner: root
+    group: root
+    mode: 0644
+    content: >
+      HISTTIMEFORMAT="%Y-%m-%dT%H:%M:%S%z "
+  when: set_bash_history_timestamps == true

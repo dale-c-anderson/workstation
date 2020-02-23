@@ -1,0 +1,4 @@
+---
+- name: contrib/acromedia.essentials
+  src: https://github.com/AcroMedia/ansible-role-essentials
+  version: origin/master
