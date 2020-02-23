@@ -5,6 +5,6 @@
   gather_facts: true
   roles:
     - name: Install software on my workstation
-      role: roles/custom/workstation-packages
+      role: custom/workstation-packages
 
   tasks: []
