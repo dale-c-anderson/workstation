@@ -11,3 +11,6 @@ wkstn_snap_packages:
     classic: true
   - name: pycharm-professional
     classic: true
+wkstn_git_repos:
+  - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
+    dest: ~/opt/bash-git-prompt

@@ -21,3 +21,12 @@
   with_items: "{{ wkstn_snap_packages }}"
   tags:
     - snap
+
+- name: Fetch software from git repos
+  become: false
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  with_items: "{{ wkstn_git_repos }}"
+  tags:
+    - git
