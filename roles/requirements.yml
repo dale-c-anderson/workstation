@@ -2,3 +2,5 @@
 - name: contrib/acromedia.essentials
   src: https://github.com/AcroMedia/ansible-role-essentials
   version: origin/master
+- name: contrib/geerlingguy.ansible-role-pip
+  src: https://github.com/geerlingguy/ansible-role-pip

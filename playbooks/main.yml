@@ -14,4 +14,14 @@
       tags:
         - workstation
 
+    - name: Instal python pip, and packages
+      role: contrib/geerlingguy.ansible-role-pip
+      vars:
+        pip_install_packages:
+          - name: awscli
+          - name: boto3
+          - name: boto
+      tags:
+        - pip
+
   tasks: []
