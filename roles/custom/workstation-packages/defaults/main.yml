@@ -3,6 +3,9 @@ wkstn_apt_packages:
   - curl
   - tilix
   - gitk
+  - gnupg-agent
+  - gnupg2
+  - mono-runtime
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - src: https://atom.io/download/deb
@@ -15,3 +18,13 @@ wkstn_snap_packages:
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
     dest: ~/opt/bash-git-prompt
+wkstn_sudo_git_repos:
+  - repo: 'https://github.com/wting/autojump.git'
+    dest: /usr/share/autojump
+
+# @TODO .... configure autojump - it needs a post-download command to be run
+
+wkstn_zips:
+  - name: KeePass
+    url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
+    dest: ~/opt/keepass

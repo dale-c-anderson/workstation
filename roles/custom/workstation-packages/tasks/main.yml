@@ -22,7 +22,7 @@
   tags:
     - snap
 
-- name: Fetch software from git repos
+- name: Fetch software from git repos (non root)
   become: false
   git:
     repo: "{{ item.repo }}"
@@ -30,3 +30,31 @@
   with_items: "{{ wkstn_git_repos }}"
   tags:
     - git
+
+- name: Fetch software from git repos that require root
+  become: true
+  git:
+    repo: "{{ item.repo }}"
+    dest: "{{ item.dest }}"
+  with_items: "{{ wkstn_sudo_git_repos }}"
+  tags:
+    - sudo-git
+
+- name: Prepare zip dirs
+  become: false
+  file:
+    state: directory
+    dest: "{{ item.dest }}"
+  with_items: "{{ wkstn_zips }}"
+  tags:
+    - zip
+- name: Fetch software from wkstn_zips
+  become: false
+  unarchive:
+    src: "{{ item.url }}"
+    # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items: "{{ wkstn_zips }}"
+  tags:
+    - zip
