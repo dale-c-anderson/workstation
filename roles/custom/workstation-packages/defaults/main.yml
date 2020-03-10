@@ -7,14 +7,19 @@ wkstn_apt_packages:
   - gnupg2
   - mono-complete
   - python-pip
+  - shellcheck
+  - whois
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - src: https://atom.io/download/deb
   - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb
+  - src: https://releases.mattermost.com/desktop/4.4.0/mattermost-desktop-4.4.0-linux-amd64.deb
 wkstn_snap_packages:
   - name: sublime-text
     classic: true
   - name: pycharm-professional
+    classic: true
+  - name: slack
     classic: true
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
