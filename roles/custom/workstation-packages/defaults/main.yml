@@ -10,11 +10,16 @@ wkstn_apt_packages:
   - shellcheck
   - whois
   - ack
+  - flameshot
+  - jq
+  - ffmpeg
+
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   - src: https://atom.io/download/deb
   - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb
   - src: https://releases.mattermost.com/desktop/4.4.0/mattermost-desktop-4.4.0-linux-amd64.deb
+
 wkstn_snap_packages:
   - name: sublime-text
     classic: true
@@ -22,9 +27,15 @@ wkstn_snap_packages:
     classic: true
   - name: slack
     classic: true
+  - name: spotify
+    classic: false
+  - name: thunderbird
+    classic: false
+
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
     dest: ~/opt/bash-git-prompt
+
 wkstn_sudo_git_repos:
   - repo: 'https://github.com/wting/autojump.git'
     dest: /usr/share/autojump
