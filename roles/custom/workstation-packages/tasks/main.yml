@@ -1,4 +1,14 @@
 ---
+- name: Add apt repositories
+  apt_repository:
+    repo: "{{ item.repo }}"
+    state: present
+    update_cache: true
+  with_items: "{{ wkstn_ppa }}"
+  tags:
+    - ppa
+    - apt
+
 - name: Install packages from apt
   apt:
     name: "{{ wkstn_apt_packages }}"

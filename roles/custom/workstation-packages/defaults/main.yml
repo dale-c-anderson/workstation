@@ -1,4 +1,8 @@
 ---
+wkstn_ppa: []
+  # - name: shutter.... Deprecated. :-(
+  #   repo: ppa:shutter/ppa
+
 wkstn_apt_packages:
   - curl
   - tilix
@@ -10,9 +14,11 @@ wkstn_apt_packages:
   - shellcheck
   - whois
   - ack
-  - flameshot
   - jq
   - ffmpeg
+  #- shutter # oops .. got removed as of ubuntu 18. :-(
+  - mlocate
+  - docker.io
 
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
