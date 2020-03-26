@@ -38,6 +38,8 @@ wkstn_snap_packages:
     classic: false
   - name: thunderbird
     classic: false
+  - name: libreoffice
+    classic: false
 
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
