@@ -18,7 +18,7 @@ wkstn_apt_packages:
   - ffmpeg
   #- shutter # oops .. got removed as of ubuntu 18. :-(
   - mlocate
-  - docker.io
+  - docker-ce
   - net-tools
 
 wkstn_remote_debs:
