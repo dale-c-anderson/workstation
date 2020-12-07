@@ -63,7 +63,8 @@
     - snap
 
 - name: Fetch software from git repos (non root)
-  become: false
+  become: true
+  become_user: "{{ ansible_user_id }}"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
