@@ -1,6 +1,5 @@
 ---
-wkstn_apt_key_urls:
-  - https://download.docker.com/linux/ubuntu/gpg
+wkstn_apt_key_urls: []
 
 wkstn_ppa: []
   # - name: shutter.... Deprecated. :-(
@@ -21,7 +20,6 @@ wkstn_apt_packages:
   - ffmpeg
   #- shutter # oops .. got removed as of ubuntu 18. :-(
   - mlocate
-  - docker-ce
   - net-tools
 
 wkstn_remote_debs:

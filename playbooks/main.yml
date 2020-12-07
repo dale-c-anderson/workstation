@@ -21,7 +21,11 @@
           - name: awscli
           - name: boto3
           - name: boto
+          - name: docker
       tags:
         - pip
+
+    - name: Instal docker Engine
+      role: contrib/geerlingguy.ansible-role-docker
 
   tasks: []
