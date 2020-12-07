@@ -60,7 +60,8 @@
     - sudo-git
 
 - name: Prepare zip dirs
-  become: false
+  become: true
+  become_user: "{{ ansible_user_id }}"
   file:
     state: directory
     dest: "{{ item.dest }}"
@@ -68,7 +69,8 @@
   tags:
     - zip
 - name: Fetch software from wkstn_zips
-  become: false
+  become: true
+  become_user: "{{ ansible_user_id }}"
   unarchive:
     src: "{{ item.url }}"
     # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download

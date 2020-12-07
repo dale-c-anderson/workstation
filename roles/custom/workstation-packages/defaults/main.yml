@@ -44,7 +44,7 @@ wkstn_snap_packages:
 
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
-    dest: ~/opt/bash-git-prompt
+    dest: "{{ ansible_user_dir }}/opt/bash-git-prompt"
 
 wkstn_sudo_git_repos:
   - repo: 'https://github.com/wting/autojump.git'
@@ -55,4 +55,4 @@ wkstn_sudo_git_repos:
 wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
-    dest: ~/opt/keepass
+    dest: "{{ ansible_user_dir }}/opt/keepass"
