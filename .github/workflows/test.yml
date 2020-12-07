@@ -16,6 +16,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: show some debug info
-        run: ls -laF && pwd && tree
+        run: ls -laF && pwd
       - name: Build
         run: ./bootstrap
