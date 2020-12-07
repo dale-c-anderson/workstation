@@ -15,7 +15,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: show some debug info
-        run: ls -laF && pwd
+      - name: ls
+        run: ls -laF
+      - name: pwd
+        run: pwd
+      - name: whoami
+        run: whoami
+      - name: try sudo
+        run: sudo ls
       - name: Build
-        run: ./bootstrap
+        run: sudo ./bootstrap
