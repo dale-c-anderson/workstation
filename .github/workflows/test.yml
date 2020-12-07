@@ -9,12 +9,13 @@ on:
     branches:
       - master
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: checkout
-        uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
-      - name: test
+      - uses: actions/checkout@v2
+      - name: show some debug info
+        run: ls -laF && pwd && tree
+      - name: Build
         run: ./bootstrap
