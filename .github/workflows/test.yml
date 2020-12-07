@@ -17,4 +17,4 @@ jobs:
         with:
           path: "${{ github.repository }}"
       - name: test
-        run: wget --no-cache -O - https://raw.githubusercontent.com/dale-c-anderson/workstation/master/bootstrap | sudo /bin/bash -s
+        run: ./bootstrap
