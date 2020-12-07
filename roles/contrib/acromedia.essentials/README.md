@@ -1,5 +1,7 @@
 # essentials
 
+![.github/workflows/molecule.yml](https://github.com/AcroMedia/ansible-role-essentials/workflows/.github/workflows/molecule.yml/badge.svg)
+
 Install utilities commonly needed by sysadmins and developers
 
 ## Requirements

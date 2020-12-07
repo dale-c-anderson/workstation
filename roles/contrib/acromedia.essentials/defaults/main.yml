@@ -2,7 +2,7 @@
 basic_packages_redhat:
   - git
   - curl
-  - libselinux-python
+  - libselinux-python3
   - yum-utils
   - mlocate
   - htop
