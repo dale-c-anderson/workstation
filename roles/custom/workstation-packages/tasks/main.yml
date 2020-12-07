@@ -1,4 +1,13 @@
 ---
+- name: Add apt keys from urls
+  apt_key:
+    url: "{{ item }}"
+    state: present
+  with_items: "{{ wkstn_apt_key_urls }}"
+  tags:
+    - gpg
+    - apt
+
 - name: Add apt repositories
   apt_repository:
     repo: "{{ item.repo }}"

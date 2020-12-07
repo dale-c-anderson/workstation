@@ -1,4 +1,7 @@
 ---
+wkstn_apt_key_urls:
+  - https://download.docker.com/linux/ubuntu/gpg
+
 wkstn_ppa: []
   # - name: shutter.... Deprecated. :-(
   #   repo: ppa:shutter/ppa
