@@ -26,4 +26,4 @@ jobs:
       - name: try sudo
         run: sudo ls
       - name: Build
-        run: sudo WKSTN_TARGET_BRANCH="${GITHUB_REF##*/}" ./bootstrap
+        run: sudo WKSTN_TARGET_BRANCH="${GITHUB_HEAD_REF}" ./bootstrap
