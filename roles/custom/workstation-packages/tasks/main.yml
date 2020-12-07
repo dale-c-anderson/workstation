@@ -1,25 +1,4 @@
 ---
-- name: Prepare zip dirs
-  become: true
-  become_user: "{{ ansible_user_id }}"
-  file:
-    state: directory
-    dest: "{{ item.dest }}"
-  with_items: "{{ wkstn_zips }}"
-  tags:
-    - zip
-- name: Fetch software from wkstn_zips
-  become: true
-  become_user: "{{ ansible_user_id }}"
-  unarchive:
-    src: "{{ item.url }}"
-    # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
-    dest: "{{ item.dest }}"
-    remote_src: yes
-  with_items: "{{ wkstn_zips }}"
-  tags:
-    - zip
-
 - name: Add apt keys from urls
   apt_key:
     url: "{{ item }}"
@@ -80,3 +59,24 @@
   with_items: "{{ wkstn_sudo_git_repos }}"
   tags:
     - sudo-git
+
+- name: Prepare zip dirs
+  become: true
+  become_user: "{{ ansible_user_id }}"
+  file:
+    state: directory
+    dest: "{{ item.dest }}"
+  with_items: "{{ wkstn_zips }}"
+  tags:
+    - zip
+- name: Fetch software from wkstn_zips
+  become: true
+  become_user: "{{ ansible_user_id }}"
+  unarchive:
+    src: "{{ item.url }}"
+    # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
+    dest: "{{ item.dest }}"
+    remote_src: yes
+  with_items: "{{ wkstn_zips }}"
+  tags:
+    - zip
