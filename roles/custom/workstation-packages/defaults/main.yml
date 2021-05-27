@@ -41,6 +41,8 @@ wkstn_snap_packages:
     classic: false
   - name: libreoffice
     classic: false
+  - name: yq
+    classic: false
 
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
