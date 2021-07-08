@@ -14,6 +14,7 @@ function main () {
   cd repos/github.com/dale-c-anderson
   git clone https://github.com/dale-c-anderson/workstation
   cd workstation
+  git checkout ${WKSTN_TARGET_BRANCH:-master}
   ansible-playbook playbooks/main.yml
 }
 
