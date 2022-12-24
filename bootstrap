@@ -16,7 +16,7 @@ function main () {
     >&2 echo "ERROR: Inventory file/dir '$INV_ARG' does not exist, or was not specified."
     exit 1
   fi
-  (set -x && ansible-playbook playbooks/main.yml "$INV_ARG")
+  (set -x && ansible-playbook playbooks/main.yml -i "$INV_ARG")
 }
 
 main "$@"
