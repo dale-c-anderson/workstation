@@ -11,7 +11,7 @@ I have a brand-new Ubuntu flavored OS, with absolute stock defaults.
 
 1. Clone this repo:
    ```bash
-   apt-get install -yq git
+   sudo apt-get install -yq git
    mkdir -pv "$HOME/repos/github.com/dale-c-anderson"
    cd "$HOME/repos/github.com/dale-c-anderson"
    git clone https://github.com/dale-c-anderson/workstation
