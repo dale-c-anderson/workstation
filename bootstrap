@@ -5,18 +5,18 @@
 set -eu -o pipefail
 
 function main () {
-  apt-get install -yq software-properties-common
-  apt-add-repository --yes --update ppa:ansible/ansible
-  apt-get update
-  apt-get install -yq ansible
-  ansible-galaxy install -r ./galaxy/requirements.yml
+  (set -x && apt-get install -yq software-properties-common)
+  (set -x && apt-add-repository --yes --update ppa:ansible/ansible)
+  (set -x && apt-get update)
+  (set -x && apt-get install -yq ansible)
+  (set -x && ansible-galaxy install -r ./galaxy/requirements.yml)
   INVENTORY_DEFAULT=recipes/UNSPECIFIED
   INV_ARG=${1:-$INVENTORY_DEFAULT}
   if [ ! -e "$INV_ARG" ]; then
     >&2 echo "ERROR: Inventory file/dir '$INV_ARG' does not exist, or was not specified."
     exit 1
   fi
-  ansible-playbook playbooks/main.yml "$INV_ARG"
+  (set -x && ansible-playbook playbooks/main.yml "$INV_ARG")
 }
 
 main "$@"
