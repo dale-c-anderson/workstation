@@ -1,5 +1,5 @@
 # workstation
-Install everything I need to start being productive.
+Install everything I need to start being productive (on Ubuntu 18.04).
 
 
 ## Quick Start:
