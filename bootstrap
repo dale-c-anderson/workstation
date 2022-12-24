@@ -14,6 +14,7 @@ function main () {
   cd repos/github.com/dale-c-anderson
   git clone https://github.com/dale-c-anderson/workstation
   cd workstation
+  ansible-galaxy install -r ./galaxy/requirements.yml
   ansible-playbook playbooks/main.yml
 }
 
