@@ -5,22 +5,17 @@
 set -eu -o pipefail
 
 function main () {
-  INVENTORY_DEFAULT=inventories/Ubuntu_18.04
-  INV_ARG=${1:-$INVENTORY_DEFAULT}
-  if [ ! -e "$INV_ARG" ]; then
-    >&2 echo "ERROR: Inventory file/dir '$INV_ARG' does not exist."
-    exit 1
-  fi
-  cd "$HOME"
   apt-get install -yq software-properties-common
   apt-add-repository --yes --update ppa:ansible/ansible
   apt-get update
-  apt-get install -yq ansible git
-  mkdir -pv repos/github.com/dale-c-anderson
-  cd repos/github.com/dale-c-anderson
-  git clone https://github.com/dale-c-anderson/workstation
-  cd workstation
+  apt-get install -yq ansible
   ansible-galaxy install -r ./galaxy/requirements.yml
+  INVENTORY_DEFAULT=recipes/UNSPECIFIED
+  INV_ARG=${1:-$INVENTORY_DEFAULT}
+  if [ ! -e "$INV_ARG" ]; then
+    >&2 echo "ERROR: Inventory file/dir '$INV_ARG' does not exist, or was not specified."
+    exit 1
+  fi
   ansible-playbook playbooks/main.yml "$INV_ARG"
 }
 
