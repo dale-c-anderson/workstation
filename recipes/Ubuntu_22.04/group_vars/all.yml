@@ -5,6 +5,7 @@ wkstn_ppa: []
   #   repo: ppa:shutter/ppa
 
 wkstn_apt_packages:
+  - terminator  # multiple gnome terminals in one window
   - curl
   - gitk
   - gnupg-agent
