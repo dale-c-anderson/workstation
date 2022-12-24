@@ -1,0 +1,57 @@
+wkstn_apt_key_urls: []
+
+wkstn_ppa: []
+  # - name: shutter.... Deprecated. :-(
+  #   repo: ppa:shutter/ppa
+
+wkstn_apt_packages:
+  - curl
+  - gitk
+  - gnupg-agent
+  - gnupg2
+  - mono-complete  #  Required to run KeePass
+  - whois
+  - ack
+  - jq
+  - ffmpeg
+  - mlocate
+  - net-tools
+  - fzf  #  Command Line Fuzzy Finder, 19.10+ only  # https://github.com/junegunn/fzf#using-linux-package-managers
+  - autojump   # "j" command line shortcut - a smarter "cd"
+
+wkstn_remote_debs:
+  - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  # - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb  .... has a wonderful conflict resolution interface ,,, havent used it in a long time though.
+
+wkstn_snap_packages:
+  - name: sublime-text
+    classic: true
+  - name: pycharm-community
+    classic: true
+  - name: slack
+    classic: true
+  - name: spotify
+    classic: false
+  - name: thunderbird
+    classic: false
+  - name: libreoffice
+    classic: false
+  - name: yq
+    classic: false
+  - name: shellcheck
+    classic: false
+  - name: helm
+    classic: true
+  - name: code   # VS Code
+    classic: true
+
+wkstn_git_repos:
+  - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
+    dest: ~/opt/bash-git-prompt
+
+wkstn_sudo_git_repos: []
+
+wkstn_zips:
+  - name: KeePass
+    url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
+    dest: ~/opt/keepass
