@@ -6,44 +6,45 @@ wkstn_ppa: []
 
 wkstn_apt_packages:
   - terminator  # multiple gnome terminals in one window
-  - curl
-  - gitk
-  - gnupg-agent
-  - gnupg2
+  - curl  # Why is this not stock??
+  - gitk   #  A fast visual git history viewer
+  - gnupg-agent   # For signing git commits
+  - gnupg2   # For signing git commits
   - mono-complete  #  Required to run KeePass
-  - whois
-  - ack
-  - jq
+  - whois   # For checking domain ownership & looking up name servers
+  - ack  # A better grep
+  - jq  # CLI Json parser
   - ffmpeg
-  - mlocate
-  - net-tools
+  - mlocate   # For finding files
+  - net-tools  # For ifconfig and other things
   - fzf  #  Command Line Fuzzy Finder, 19.10+ only  # https://github.com/junegunn/fzf#using-linux-package-managers
   - autojump   # "j" command line shortcut - a smarter "cd"
+  - ksnip   # screenshots; best of the worst, since shutter went RIP in < 18.04
 
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   # - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb  .... has a wonderful conflict resolution interface ,,, havent used it in a long time though.
 
 wkstn_snap_packages:
-  - name: sublime-text
+  - name: sublime-text  # feature-rich text editor
     classic: true
-  - name: pycharm-community
+  - name: pycharm-community  #  Python IDE
     classic: true
-  - name: slack
+  - name: slack   # Work chat
     classic: true
-  - name: spotify
+  - name: spotify  # Music
     classic: false
-  - name: thunderbird
+  - name: thunderbird  # For testing email
     classic: false
-  - name: libreoffice
+  - name: libreoffice  # Soemtimes i need to edit CSVs
     classic: false
-  - name: yq
+  - name: yq   # YAML parser
     classic: false
-  - name: shellcheck
+  - name: shellcheck  # Linter for bash scripts
     classic: false
-  - name: helm
+  - name: helm   # Kubernetes package manager
     classic: true
-  - name: code   # VS Code
+  - name: code   # VS Code IDE
     classic: true
 
 wkstn_git_repos:
