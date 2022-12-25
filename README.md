@@ -39,3 +39,4 @@ After the playbook installs software, you'll need to do the following manually:
 * set up a new GPG key and configure code signing
 * clone private repositories
 * configure dropbox or other cloud storage services
+* Configure backups
