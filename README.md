@@ -25,3 +25,17 @@ I have a brand-new Ubuntu flavored OS, with absolute stock defaults.
    sudo ./bootstrap recipes/Ubuntu_22.04   # for example.
    ```
    * The bootstrap script installs ansible, installs role dependencies, and runs `ansible-playbook` for the recipe you chose.
+
+
+## Followup
+
+After the playbook installs software, you'll need to do the following manually:
+
+* log in to browser profiles
+* log in to cloud services
+* generate new ssh keys and add them to services (github, gitlab, etc)
+* add your ssh key(s) to your ssh agent
+* log in to IDE profiles (jetbrains, vscode, etc)
+* set up a new GPG key and configure code signing
+* clone private repositories
+* configure dropbox or other cloud storage services
