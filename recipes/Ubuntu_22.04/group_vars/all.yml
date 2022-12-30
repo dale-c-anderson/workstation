@@ -5,6 +5,8 @@ wkstn_ppa: []
   #   repo: ppa:shutter/ppa
 
 wkstn_apt_packages:
+  - vim   # Otherwise, stock vi settings (and key bindings) are OLD school and terrible.
+  - ssh   # as in, server. I've never _not_ needed to SSH in to my workstation
   - terminator  # multiple gnome terminals in one window
   - curl  # Why is this not stock??
   - gitk   #  A fast visual git history viewer
@@ -36,8 +38,8 @@ wkstn_snap_packages:
     classic: false
   - name: thunderbird  # For testing email
     classic: false
-  - name: libreoffice  # Soemtimes i need to edit CSVs
-    classic: false
+#  - name: libreoffice  # LibreOffice is installed by default now.
+#    classic: false
   - name: yq   # YAML parser
     classic: false
   - name: shellcheck  # Linter for bash scripts
