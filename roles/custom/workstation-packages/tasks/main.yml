@@ -18,17 +18,25 @@
     - ppa
     - apt
 
+- name: Update apt cache
+  apt:
+    update_cache: true
+  tags:
+    - apt
+
 - name: Install packages from apt
   apt:
-    name: "{{ wkstn_apt_packages }}"
+    name: "{{ item }}"
     state: present
-    update_cache: true
+    update_cache: false
+  with_items: "{{ wkstn_apt_packages }}"
   tags:
     - apt
 
 - name: Install packages from remote debs
   apt:
     deb: "{{ item.src }}"
+    state: present
   with_items: "{{ wkstn_remote_debs }}"
   tags:
     - deb
