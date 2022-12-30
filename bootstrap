@@ -10,7 +10,11 @@ function main () {
   (set -x && apt-add-repository --yes --update ppa:ansible/ansible)
   (set -x && apt-get update)
   (set -x && apt-get install -yq ansible)
-  (set -x && ansible-galaxy install -r ./galaxy/requirements.yml)
+
+  # Don't end up with root-owned files in the repo.
+  REG_USER=$(logname)
+  (set -x && runuser -u $REG_USER -- ansible-galaxy install -r ./galaxy/requirements.yml)
+
   INVENTORY_DEFAULT=recipes/UNSPECIFIED
   INV_ARG=${1:-$INVENTORY_DEFAULT}
   if [ ! -e "$INV_ARG" ]; then
