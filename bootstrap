@@ -18,7 +18,7 @@ function main () {
   INVENTORY_DEFAULT=recipes/UNSPECIFIED
   INV_ARG=${1:-$INVENTORY_DEFAULT}
   if [ ! -e "$INV_ARG" ]; then
-    >&2 echo "ERROR: Inventory file/dir '$INV_ARG' does not exist, or was not specified."
+    >&2 echo "ERROR: the recipe '$INV_ARG' does not exist, or was not specified."
     exit 1
   fi
   (set -x && ansible-playbook playbooks/main.yml -i "$INV_ARG")
