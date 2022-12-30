@@ -8,5 +8,6 @@
   version: origin/master
 
 - name: contrib/geerlingguy.ansible-role-docker
-  src: https://github.com/geerlingguy/ansible-role-docker
-  version: origin/master
+  src: https://github.com/dale-c-anderson/ansible-role-docker
+  version: origin/382-fix-apt-errors-on-pop-os
+

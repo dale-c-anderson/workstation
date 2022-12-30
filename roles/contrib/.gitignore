@@ -1,1 +1,7 @@
-# Mostly just a placeholder for the directory so it doesn't disappear
+# Since we always want bootstrap to download the latest versions of roles,
+# ignore everything in this dir,
+*
+
+# except this file,
+!.gitignore
+

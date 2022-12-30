@@ -59,3 +59,4 @@ wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
     dest: ~/opt/keepass
+
