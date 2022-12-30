@@ -5,6 +5,7 @@
 set -eu -o pipefail
 
 function main () {
+  require_sudo
   (set -x && apt-get install -yq software-properties-common)
   (set -x && apt-add-repository --yes --update ppa:ansible/ansible)
   (set -x && apt-get update)
@@ -17,6 +18,13 @@ function main () {
     exit 1
   fi
   (set -x && ansible-playbook playbooks/main.yml -i "$INV_ARG")
+}
+
+function require_sudo() {
+  if [ $EUID -ne 0 ]; then
+    >&2 echo "ERROR: Please run this script with sudo."
+    exit 1
+  fi
 }
 
 main "$@"
