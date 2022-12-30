@@ -41,6 +41,16 @@
   tags:
     - deb
 
+- name: Make sure snapd is present before we try installing snap packages
+  apt:
+    name: snapd
+    state: present
+    update_cache: false
+  tags:
+    - apt
+    - snapd
+    - snap
+
 - name: Install packages from snap
   snap:
     name: "{{ item.name }}"
@@ -75,6 +85,7 @@
   with_items: "{{ wkstn_zips }}"
   tags:
     - zip
+
 - name: Fetch software from wkstn_zips
   become: false
   unarchive:
