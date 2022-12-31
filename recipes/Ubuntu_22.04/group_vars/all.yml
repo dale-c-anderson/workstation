@@ -46,6 +46,8 @@ wkstn_snap_packages:
     classic: false
   - name: helm   # Kubernetes package manager
     classic: true
+  - name: kubectl
+    classic: true
   - name: code   # VS Code IDE
     classic: true
 
@@ -59,4 +61,3 @@ wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
     dest: ~/opt/keepass
-
