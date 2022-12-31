@@ -47,8 +47,9 @@ After the playbook installs software, you'll need to do the following manually:
 * set up a new GPG key and configure code signing
 * clone private repositories
 * configure dropbox or other cloud storage services
+* configure credentials for API services (aws, kubectl, etc)
+* log in to public and/or private docker registries
 * configure local system backups
-* configure credentials for API services (aws, kubectl, docker, etc)
 
 
 ## Updating the contrib roles
