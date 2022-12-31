@@ -13,7 +13,7 @@ function main () {
 
   # Don't end up with root-owned files in the repo.
   REG_USER=$(logname)
-  (set -x && runuser -u $REG_USER -- ansible-galaxy install -r ./galaxy/requirements.yml)
+  (set -x && runuser -u "$REG_USER" -- ansible-galaxy install -r ./galaxy/requirements.yml)
 
   INVENTORY_DEFAULT=recipes/UNSPECIFIED
   INV_ARG=${1:-$INVENTORY_DEFAULT}
