@@ -60,7 +60,7 @@
     - snap
 
 - name: Fetch software from git repos (non root)
-  become: false
+  become_user: "{{ lookup('env', 'SUDO_USER') }}"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
@@ -69,7 +69,7 @@
     - git
 
 - name: Fetch software from git repos that require root
-  become: true
+  # become: true # Not necessary - the playbook should already be running with sudo.
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
@@ -78,7 +78,7 @@
     - sudo-git
 
 - name: Prepare zip dirs
-  become: false
+  become_user: "{{ lookup('env', 'SUDO_USER') }}"
   file:
     state: directory
     dest: "{{ item.dest }}"
@@ -87,7 +87,7 @@
     - zip
 
 - name: Fetch software from wkstn_zips
-  become: false
+  become_user: "{{ lookup('env', 'SUDO_USER') }}"
   unarchive:
     src: "{{ item.url }}"
     # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
