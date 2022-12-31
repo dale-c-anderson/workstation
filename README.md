@@ -1,12 +1,12 @@
 # workstation
 
-An Ansible playbook and cusom role which installs most of the software I use (on an Ubuntu flavored OS), to save me several hours worth of setup time on a new workstation.
+An Ansible playbook (and role) which installs most of the software I use (on an Ubuntu flavored OS), to save me several hours worth of setup time on a new workstation.
 
 
 ## Used on
 * Ubuntu 18.04
 * Ubuntu 22.04
-* Pop!_OS 22.04
+* Pop!_OS 22.04  (Uses the same recipe dir as Ubuntu 22.04)
 
 
 ## Assumptions
@@ -25,13 +25,14 @@ I have a brand-new Ubuntu flavored OS, with absolute stock defaults.
    cd workstation
    ```
 
-2. Have a look inside `recipes/` folder, and examine each one's `group_vars/all.yml` file. If one of them suits your needs, proceed to step 3. Otherwise, duplicate or modify one of the dirs as needed.
+2. Have a look inside `recipes/` folder, and examine each one's `group_vars/all.yml` file. If one of the recipes suits your needs, proceed to step 3. Otherwise, duplicate or modify one of the recipes as needed.
 
-3. Run the bootstrap script with sudo (you'll be installing software after all), specifying the path of the recipe to use:
+3. Run the bootstrap script, specifying the relative path of the recipe dir to use:
    ```bash
-   sudo ./bootstrap recipes/Ubuntu_22.04   # for example.
+   sudo ./bootstrap recipes/Ubuntu_22.04
    ```
    * The bootstrap script installs ansible, downloads the contrib roles specified in `galaxy/requirements.yml`, and runs `ansible-playbook` for the recipe you chose.
+   * The script should be run with `sudo`, as opposed to logging in as root.
 
 
 ## Followup
@@ -66,4 +67,3 @@ Sadly, Galaxy doesn't really have any facility to update roles, so the easiest w
    ```bash
    ansible-galaxy install -r ./galaxy/requirements.yml
    ```
-
