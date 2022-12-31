@@ -15,13 +15,15 @@ function main () {
   REG_USER=$(logname)
   (set -x && runuser -u "$REG_USER" -- ansible-galaxy install -r ./galaxy/requirements.yml)
 
-  INVENTORY_DEFAULT=recipes/UNSPECIFIED
-  INV_ARG=${1:-$INVENTORY_DEFAULT}
-  if [ ! -e "$INV_ARG" ]; then
-    >&2 echo "ERROR: the recipe '$INV_ARG' does not exist, or was not specified."
+  RECIPE_DEFAULT=recipes/UNSPECIFIED
+  RECIPE_ARG=${1:-$RECIPE_DEFAULT}
+  if [ ! -e "$RECIPE_ARG" ]; then
+    >&2 echo "ERROR: the recipe '$RECIPE_ARG' does not exist, or was not specified. The path to the desired recipe must be supplied as the first argument."
     exit 1
   fi
-  (set -x && ansible-playbook playbooks/main.yml -i "$INV_ARG")
+
+  shift  # Eat the recipe arg so we can pass everything else to ansible (mostly so we can pass tags).
+  (set -x && ansible-playbook playbooks/main.yml -i "$RECIPE_ARG" "$@")
 }
 
 function require_sudo() {
