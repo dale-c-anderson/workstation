@@ -1,4 +1,7 @@
 ---
+- set_fact:
+    regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+
 - name: Add apt keys from urls
   apt_key:
     url: "{{ item }}"
@@ -60,7 +63,7 @@
     - snap
 
 - name: Fetch software from git repos (non root)
-  become_user: "{{ lookup('env', 'SUDO_USER') }}"
+  become_user: "{{ regular_user }}"
   git:
     repo: "{{ item.repo }}"
     dest: "{{ item.dest }}"
@@ -78,7 +81,7 @@
     - sudo-git
 
 - name: Prepare zip dirs
-  become_user: "{{ lookup('env', 'SUDO_USER') }}"
+  become_user: "{{ regular_user }}"
   file:
     state: directory
     dest: "{{ item.dest }}"
@@ -87,7 +90,7 @@
     - zip
 
 - name: Fetch software from wkstn_zips
-  become_user: "{{ lookup('env', 'SUDO_USER') }}"
+  become_user: "{{ regular_user }}"
   unarchive:
     src: "{{ item.url }}"
     # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
