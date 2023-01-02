@@ -27,6 +27,7 @@ wkstn_apt_packages:
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   # - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb  .... has a wonderful conflict resolution interface ,,, havent used it in a long time though.
+  - src: https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb
 
 wkstn_snap_packages:
   - name: sublime-text  # feature-rich text editor
