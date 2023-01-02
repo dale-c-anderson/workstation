@@ -27,7 +27,7 @@ wkstn_sudo_git_repos: []
 #  - repo: 'https://github.com/wting/autojump.git'
 #    dest: /usr/share/autojump
 
-wkstn_zips: []
+wkstn_zips: []   # Poorly named list. Should be "archives" Both Zip and tgz are supported.
 #  - name: KeePass
 #    url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
 #    dest: ~/opt/keepass

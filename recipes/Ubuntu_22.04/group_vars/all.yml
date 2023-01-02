@@ -22,6 +22,7 @@ wkstn_apt_packages:
   - fzf  #  Command Line Fuzzy Finder, 19.10+ only  # https://github.com/junegunn/fzf#using-linux-package-managers
   - autojump   # "j" command line shortcut - a smarter "cd"
   - ksnip   # screenshots; best of the worst, since shutter went RIP in < 18.04
+  - ethtool   # for getting info from local network interfaces
 
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
@@ -61,3 +62,6 @@ wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
     dest: ~/opt/keepass
+  - name: LagoonCLI
+    url: https://github.com/uselagoon/lagoon-cli/releases/download/v0.16.0/lagoon-cli-v0.16.0-linux-amd64.tar.gz
+    dest: ~/opt/lagoon-cli
