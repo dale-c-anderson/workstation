@@ -53,6 +53,8 @@ wkstn_snap_packages:
     classic: true
   - name: code   # VS Code IDE
     classic: true
+  - name: kontena-lens  # Kubernetes cluster management GUI
+    classic: true
 
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
