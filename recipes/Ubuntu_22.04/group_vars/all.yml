@@ -24,6 +24,7 @@ wkstn_apt_packages:
   - ksnip   # screenshots; best of the worst, since shutter went RIP in < 18.04
   - ethtool   # for getting info from local network interfaces
   - transmission   #  Torrent manager
+  - vlc   # Ubuntu's built-in media is pretty terrible.
 
 wkstn_remote_debs:
   - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
