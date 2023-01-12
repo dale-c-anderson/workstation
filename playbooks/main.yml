@@ -18,7 +18,7 @@
       role: contrib/geerlingguy.ansible-role-pip
       vars:
         pip_install_packages:
-          - name: awscli
+          - name: awscli   # @TODO - fix or replace this; it's still installing v1, we need v2
           - name: boto3
           - name: boto
           - name: docker
