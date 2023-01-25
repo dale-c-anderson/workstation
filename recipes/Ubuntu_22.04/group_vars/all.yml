@@ -1,10 +1,8 @@
 wkstn_apt_key_urls: []
 
 wkstn_ppa:
-  - name: obs-studio
-    repo: ppa:obsproject/obs-studio
-  # - name: shutter.... Deprecated. :-(
-  #   repo: ppa:shutter/ppa
+  - repo: ppa:obsproject/obs-studio
+#  -  repo: ppa:shutter/ppa  # Deprecated. :-(
 
 wkstn_apt_packages:
   - vim   # Otherwise, stock vi settings (and key bindings) are OLD school and terrible.
@@ -29,6 +27,7 @@ wkstn_apt_packages:
   - vlc   # Ubuntu's built-in media is pretty terrible.
   - cifs-utils  # Be able to mount local network shares
   - ipcalc   # command line ip subnet conversion
+  - obs-studio   # Open Broadcaster Software
 
 # Deb packages should be evaluated often - they go out of date very quickly.
 wkstn_remote_debs:
