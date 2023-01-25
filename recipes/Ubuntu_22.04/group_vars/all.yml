@@ -1,6 +1,8 @@
 wkstn_apt_key_urls: []
 
-wkstn_ppa: []
+wkstn_ppa:
+  - name: obs-studio
+    repo: ppa:obsproject/obs-studio
   # - name: shutter.... Deprecated. :-(
   #   repo: ppa:shutter/ppa
 
