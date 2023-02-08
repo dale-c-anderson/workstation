@@ -28,6 +28,7 @@ wkstn_apt_packages:
   - cifs-utils  # Be able to mount local network shares
   - ipcalc   # command line ip subnet conversion
   - obs-studio   # Open Broadcaster Software
+  - yamllint   # Linter for YAML files
 
 # Deb packages should be evaluated often - they go out of date very quickly.
 wkstn_remote_debs:
