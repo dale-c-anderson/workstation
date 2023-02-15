@@ -1,6 +1,8 @@
 ---
 - set_fact:
     regular_user: "{{ ansible_env.SUDO_USER or ansible_user_id }}"
+  tags:
+    - always
 
 - name: Add apt keys from urls
   apt_key:

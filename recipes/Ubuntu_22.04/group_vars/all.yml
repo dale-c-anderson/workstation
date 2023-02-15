@@ -5,7 +5,7 @@ wkstn_ppa:
 #  -  repo: ppa:shutter/ppa  # Deprecated. :-(
 
 wkstn_apt_packages:
-  - vim   # Otherwise, stock vi settings (and key bindings) are OLD school and terrible.
+  - neovim   # Otherwise, stock vi settings (and key bindings) are OLD school and terrible.
   - ssh   # as in, server. I've never _not_ needed to SSH in to my workstation
   - terminator  # multiple gnome terminals in one window
   - curl  # Why is this not stock??
@@ -76,3 +76,6 @@ wkstn_zips:
   - name: LagoonCLI
     url: https://github.com/uselagoon/lagoon-cli/releases/download/v0.16.0/lagoon-cli-v0.16.0-linux-amd64.tar.gz
     dest: ~/opt/lagoon-cli
+#  - name: Dropbox .... nah. Its a manual install any way you slice it.
+#    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
+#    dest: ~/opt/dropbox
