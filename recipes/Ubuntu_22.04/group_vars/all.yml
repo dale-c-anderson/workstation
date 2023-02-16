@@ -32,10 +32,15 @@ wkstn_apt_packages:
 
 # Deb packages should be evaluated often - they go out of date very quickly.
 wkstn_remote_debs:
-  - src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - name: Google Chrome
+    src: https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
   # - src: https://www.syntevo.com/downloads/smartgit/smartgit-19_1_6.deb  .... has a wonderful conflict resolution interface ,,, havent used it in a long time though.
-  - src: https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb
-  - src: https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.32-1ubuntu22.04_amd64.deb
+  - name: Oracle VirtualBox
+    src: https://download.virtualbox.org/virtualbox/7.0.4/virtualbox-7.0_7.0.4-154605~Ubuntu~jammy_amd64.deb
+  - name: MySQL Workbench
+    src: https://dev.mysql.com/get/Downloads/MySQLGUITools/mysql-workbench-community_8.0.32-1ubuntu22.04_amd64.deb
+  - name: Beyond Compare
+    src: https://www.scootersoftware.com/bcompare-4.4.5.27371_amd64.deb
 
 wkstn_snap_packages:
   - name: sublime-text  # feature-rich text editor
