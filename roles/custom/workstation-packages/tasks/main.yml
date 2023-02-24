@@ -100,3 +100,15 @@
   with_items: "{{ wkstn_zips }}"
   tags:
     - zip
+
+- name: Download standalone binaries
+  become_user: "{{ regular_user }}"
+  get_url:
+      url: "{{ item.url }}"
+      dest: "{{ item.dest }}"
+      mode: 0755
+      checksum: "{{ item.checksum }}"  #  Format: <algorithm>:<checksum_value>
+  with_items: "{{ wkstn_standalone_binaries }}"
+  tags:
+      - standalone-binaries
+      - bin

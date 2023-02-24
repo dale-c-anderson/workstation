@@ -84,3 +84,9 @@ wkstn_zips:
 #  - name: Dropbox .... nah. Its a manual install any way you slice it.
 #    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
 #    dest: ~/opt/dropbox
+
+wkstn_standalone_binaries:
+  - name: Terragrunt
+    url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.44.0/terragrunt_linux_amd64
+    dest: ~/bin/terragrunt
+    checksum: sha256:2cc9df041fde14a989d9388f6938a924b1a13b2353baacc42f67ecabdec8e2c9
