@@ -84,14 +84,24 @@ wkstn_zips:
 #  - name: Dropbox .... nah. Its a manual install any way you slice it.
 #    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
 #    dest: ~/opt/dropbox
+  - name: Cloudflare Terraforming
+    url: https://github.com/cloudflare/cf-terraforming/releases/download/v0.10.0/cf-terraforming_0.10.0_linux_amd64.tar.gz
+    checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b
+    dest: ~/opt/cf-terraforming-v0.10.0
 
+wkstn_symlinks:
+  - src: ~/opt/cf-terraforming-v0.10.0
+    dest: ~/opt/cf-terraforming
+    state: link
+
+  - src: ~/opt/cf-terraforming/cf-terraforming
+    dest: ~/bin/cf-terraforming
+    state: link
+
+
+# Uncompressed/unzipped raw binaries
 wkstn_standalone_binaries:
 #  - name: Terragrunt
 #    url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.44.0/terragrunt_linux_amd64
 #    dest: ~/bin/terragrunt
 #    checksum: sha256:2cc9df041fde14a989d9388f6938a924b1a13b2353baacc42f67ecabdec8e2c9
-
-  - name: Cloudflare Terraforming
-    url: https://github.com/cloudflare/cf-terraforming/releases/download/v0.10.0/cf-terraforming_0.10.0_linux_amd64.tar.gz
-    dest: ~/bin/cf-terraforming
-    checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b

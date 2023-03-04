@@ -94,7 +94,6 @@
   become_user: "{{ regular_user }}"
   unarchive:
     src: "{{ item.url }}"
-    # https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.44/KeePass-2.44.zip/download
     dest: "{{ item.dest }}"
     remote_src: yes
   with_items: "{{ wkstn_zips }}"
@@ -111,4 +110,19 @@
   with_items: "{{ wkstn_standalone_binaries }}"
   tags:
       - standalone-binaries
+      - bin
+
+
+- name: Create symlinks
+  become_user: "{{ regular_user }}"
+  file:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+      state: "{{ item.state | default('link') }}"
+  with_items: "{{ wkstn_symlinks }}"
+  tags:
+      - link
+      - symlinks
+      - links
+      - zip
       - bin
