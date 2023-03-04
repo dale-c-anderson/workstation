@@ -86,7 +86,12 @@ wkstn_zips:
 #    dest: ~/opt/dropbox
 
 wkstn_standalone_binaries:
-  - name: Terragrunt
-    url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.44.0/terragrunt_linux_amd64
-    dest: ~/bin/terragrunt
-    checksum: sha256:2cc9df041fde14a989d9388f6938a924b1a13b2353baacc42f67ecabdec8e2c9
+#  - name: Terragrunt
+#    url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.44.0/terragrunt_linux_amd64
+#    dest: ~/bin/terragrunt
+#    checksum: sha256:2cc9df041fde14a989d9388f6938a924b1a13b2353baacc42f67ecabdec8e2c9
+
+  - name: Cloudflare Terraforming
+    url: https://github.com/cloudflare/cf-terraforming/releases/download/v0.10.0/cf-terraforming_0.10.0_linux_amd64.tar.gz
+    dest: ~/bin/cf-terraforming
+    checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b
