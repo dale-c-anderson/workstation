@@ -1,4 +1,6 @@
 ---
+collections: []
+roles:
 - name: contrib/acromedia.essentials
   src: https://github.com/AcroMedia/ansible-role-essentials
   version: origin/master
@@ -10,4 +12,3 @@
 - name: contrib/geerlingguy.ansible-role-docker
   src: https://github.com/dale-c-anderson/ansible-role-docker
   version: origin/382-fix-apt-errors-on-pop-os
-
