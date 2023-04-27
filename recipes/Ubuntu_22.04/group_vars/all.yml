@@ -42,7 +42,7 @@ wkstn_remote_debs:
   - name: Beyond Compare
     src: https://www.scootersoftware.com/bcompare-4.4.5.27371_amd64.deb
   - name: Lando (docker compose wrapper)
-    src: https://github.com/lando/lando/releases/download/v3.11.0/lando-x64-v3.11.0.deb
+    src: https://github.com/lando/lando/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}/lando-x64-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}.deb
   - name: Discord chat app
     src: https://discord.com/api/download?platform=linux&format=deb
 
