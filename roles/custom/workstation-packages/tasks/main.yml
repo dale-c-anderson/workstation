@@ -89,6 +89,7 @@
   with_items: "{{ wkstn_zips }}"
   tags:
     - zip
+    - zips
 
 - name: Fetch software from wkstn_zips
   become_user: "{{ regular_user }}"
@@ -99,6 +100,7 @@
   with_items: "{{ wkstn_zips }}"
   tags:
     - zip
+    - zips
 
 - name: Download standalone binaries
   become_user: "{{ regular_user }}"
@@ -125,4 +127,5 @@
       - symlinks
       - links
       - zip
+      - zips
       - bin

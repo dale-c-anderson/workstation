@@ -43,7 +43,7 @@ wkstn_remote_debs:
   - name: Beyond Compare
     src: https://www.scootersoftware.com/bcompare-4.4.5.27371_amd64.deb
   - name: Lando (docker compose wrapper)
-    src: https://github.com/lando/lando/releases/download/v3.11.0/lando-x64-v3.11.0.deb
+    src: https://github.com/lando/lando/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}/lando-x64-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}.deb
   - name: Discord chat app
     src: https://discord.com/api/download?platform=linux&format=deb
 
@@ -85,12 +85,15 @@ wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
     dest: ~/opt/keepass
+
   - name: LagoonCLI
-    url: https://github.com/uselagoon/lagoon-cli/releases/download/v0.16.0/lagoon-cli-v0.16.0-linux-amd64.tar.gz
-    dest: ~/opt/lagoon-cli
+    url: https://github.com/uselagoon/lagoon-cli/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64.tar.gz
+    dest: ~/opt  # It unzips to its own versioned subfolder
+
 #  - name: Dropbox .... nah. Its a manual install any way you slice it.
 #    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
 #    dest: ~/opt/dropbox
+
   - name: Cloudflare Terraforming
     url: https://github.com/cloudflare/cf-terraforming/releases/download/v0.10.0/cf-terraforming_0.10.0_linux_amd64.tar.gz
     checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b
@@ -106,7 +109,15 @@ wkstn_zips:
     dest: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
 
 wkstn_symlinks:
-  # Terraforming
+  # Lagoon CLI
+  - src: ~/opt/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64
+    dest: ~/opt/lagoon-cli
+    state: link
+  - src: ~/opt/lagoon-cli/lagoon
+    dest: ~/bin/lagoon
+    state: link
+
+  # Cloudflare Terraforming
   - src: ~/opt/cf-terraforming-v0.10.0
     dest: ~/opt/cf-terraforming
     state: link
