@@ -29,6 +29,7 @@ wkstn_apt_packages:
   - ipcalc   # command line ip subnet conversion
   - obs-studio   # Open Broadcaster Software
   - yamllint   # Linter for YAML files
+  - golang   #  Be able to build go apps
 
 # Deb packages should be evaluated often - they go out of date very quickly.
 wkstn_remote_debs:
