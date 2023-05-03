@@ -101,21 +101,33 @@ wkstn_zips:
     dest: ~/opt/kubepug-v1.4.0
     checksum: sha256:7659087006c51318854a75469433d4e8d09aa40eec3828dd57ef5d0a4e7489a6
 
+  - name: eksctl
+    url: https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz
+    dest: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
+
 wkstn_symlinks:
+  # Terraforming
   - src: ~/opt/cf-terraforming-v0.10.0
     dest: ~/opt/cf-terraforming
     state: link
-
   - src: ~/opt/cf-terraforming/cf-terraforming
     dest: ~/bin/cf-terraforming
     state: link
 
+  # Kubepug
   - src: ~/opt/kubepug-v1.4.0
     dest: ~/opt/kubepug
     state: link
-
   - src: ~/opt/kubepug/kubepug
     dest: ~/bin/kubepug
+    state: link
+
+  # eksctl
+  - src: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
+    dest: ~/opt/eksctl
+    state: link
+  - src: ~/opt/eksctl/eksctl
+    dest: ~/bin/eksctl
     state: link
 
 
