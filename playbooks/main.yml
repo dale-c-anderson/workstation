@@ -27,5 +27,42 @@
 
     - name: Instal docker Engine
       role: contrib/geerlingguy.ansible-role-docker
+      tags:
+        - docker
 
   tasks: []
+
+- hosts: localhost
+  connection: local
+  become: true
+  gather_facts: false
+  tags:
+    - gcloud
+  tasks:
+    - name: Install gcloud prerequisites
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - gnupg
+
+    - name: Configure apt source
+      copy:
+        dest: /etc/apt/sources.list.d/google-cloud-sdk.list
+        content: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
+
+    - name: Install apt source key
+      apt_key:
+        url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+        state: present
+        #id: 7FAC5991
+        keyring: /usr/share/keyrings/cloud.google.gpg
+
+    - name: Update apt cache
+      apt:
+        update_cache: true
+
+    - name: Install gcloud cli
+      apt:
+        name: google-cloud-cli
+        state: present
