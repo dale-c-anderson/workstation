@@ -46,6 +46,8 @@ wkstn_remote_debs:
     src: https://github.com/lando/lando/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}/lando-x64-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/lando/lando/releases/latest |jq -r .tag_name') }}.deb
   - name: Discord chat app
     src: https://discord.com/api/download?platform=linux&format=deb
+  - name: Lens K8s Cluster Manager (v4)
+    src: https://github.com/lensapp/lens/releases/download/v4.2.5/Lens-4.2.5.amd64.deb
 
 wkstn_snap_packages:
   - name: sublime-text  # feature-rich text editor
@@ -70,8 +72,8 @@ wkstn_snap_packages:
     classic: true
   - name: code   # VS Code IDE
     classic: true
-  - name: kontena-lens  # Kubernetes cluster management GUI
-    classic: true
+#  - name: kontena-lens  # Kubernetes cluster management GUI
+#    classic: true
   - name: altair  # GraphQL IDE
     classic: false
 
