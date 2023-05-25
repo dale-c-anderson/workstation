@@ -108,6 +108,10 @@ wkstn_zips:
     url: https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz
     dest: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
 
+  - name: terraform
+    url: https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
+    dest: ~/opt/terraform-1.4.6
+
 wkstn_symlinks:
   # Lagoon CLI
   - src: ~/opt/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64
@@ -141,6 +145,13 @@ wkstn_symlinks:
     dest: ~/bin/eksctl
     state: link
 
+  # terraform
+  - src: ~/opt/terraform-1.4.6
+    dest: ~/opt/terraform
+    state: link
+  - src: ~/opt/terraform/terraform
+    dest: ~/bin/terraform
+    state: link
 
 # Uncompressed/unzipped raw binaries
 wkstn_standalone_binaries:
