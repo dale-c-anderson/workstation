@@ -111,8 +111,8 @@ wkstn_zips:
     dest: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
 
   - name: terraform
-    url: https://releases.hashicorp.com/terraform/1.4.6/terraform_1.4.6_linux_amd64.zip
-    dest: ~/opt/terraform-1.4.6
+    url: https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
+    dest: ~/opt/terraform-1.5.0
 
 wkstn_symlinks:
   # Lagoon CLI
@@ -148,7 +148,7 @@ wkstn_symlinks:
     state: link
 
   # terraform
-  - src: ~/opt/terraform-1.4.6
+  - src: ~/opt/terraform-1.5.0
     dest: ~/opt/terraform
     state: link
   - src: ~/opt/terraform/terraform
