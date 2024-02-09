@@ -114,6 +114,10 @@ wkstn_zips:
     url: https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
     dest: ~/opt/terraform-1.5.0
 
+  - name: stern  # Better log follower than kubectl logs
+    url: https://github.com/stern/stern/releases/download/v1.28.0/stern_1.28.0_linux_amd64.tar.gz
+    dest: ~/opt/stern/1.28.0
+
 wkstn_symlinks:
   # Lagoon CLI
   - src: ~/opt/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64
@@ -153,6 +157,11 @@ wkstn_symlinks:
     state: link
   - src: ~/opt/terraform/terraform
     dest: ~/bin/terraform
+    state: link
+
+  # stern
+  - src: ~/opt/stern/1.28.0/stern
+    dest: ~/bin/stern
     state: link
 
 # Uncompressed/unzipped raw binaries
