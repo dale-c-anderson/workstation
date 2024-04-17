@@ -76,6 +76,8 @@ wkstn_snap_packages:
 #    classic: true
   - name: altair  # GraphQL IDE
     classic: false
+  - name: kubectx  # Interactive kubectl context switcher
+    classic: true
 
 wkstn_git_repos:
   - repo: 'https://github.com/magicmonty/bash-git-prompt.git'
