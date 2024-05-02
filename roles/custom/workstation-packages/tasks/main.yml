@@ -129,9 +129,6 @@
         extra_args: --user
       register: pip_result
 
-    - debug:
-        var: pip_result
-
     - name: Install tools from github releases for the local user.
       ansible.builtin.shell: >
         set -eu -o pipefail && (
@@ -144,10 +141,6 @@
         executable: /bin/bash
       loop: "{{ wkstn_github_install_release }}"
       register: wkstn_github_install_release_result
-
-    - debug:
-        var: wkstn_github_install_release_result
-
 
 - name: Create symlinks
   become_user: "{{ regular_user }}"
