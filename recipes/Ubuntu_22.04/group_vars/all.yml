@@ -85,6 +85,16 @@ wkstn_git_repos:
 
 wkstn_sudo_git_repos: []
 
+
+# See https://github.com/Rishang/install-release
+wkstn_github_install_release:
+  - repo: https://github.com/stern/stern   # Stern is a more useful log follower than "kubectl logs"
+  - repo: https://github.com/rikatz/kubepug  # K8s "(Deprecations) PreUpGrade (Checker)"
+  - repo: https://github.com/doitintl/kube-no-trouble   # Another K8s pre-upgrade checker. @TODO symlink this as 'kubent'
+  - repo: https://github.com/eksctl-io/eksctl  # Command line tool for working with AWS EKS clusters
+  - repo: https://github.com/uselagoon/lagoon-cli  # @TODO: Link as 'lagoon'
+
+
 wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
@@ -103,30 +113,18 @@ wkstn_zips:
     checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b
     dest: ~/opt/cf-terraforming-v0.10.0
 
-  - name: kubepug
-    url: https://github.com/rikatz/kubepug/releases/download/v1.4.0/kubepug_linux_amd64.tar.gz
-    dest: ~/opt/kubepug-v1.4.0
-    checksum: sha256:7659087006c51318854a75469433d4e8d09aa40eec3828dd57ef5d0a4e7489a6
-
-  - name: eksctl
-    url: https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_Linux_amd64.tar.gz
-    dest: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
-
   - name: terraform
     url: https://releases.hashicorp.com/terraform/1.5.0/terraform_1.5.0_linux_amd64.zip
     dest: ~/opt/terraform-1.5.0
 
-  - name: stern  # Better log follower than kubectl logs
-    url: https://github.com/stern/stern/releases/download/v1.28.0/stern_1.28.0_linux_amd64.tar.gz
-    dest: ~/opt/stern/1.28.0
 
 wkstn_symlinks:
-  # Lagoon CLI
-  - src: ~/opt/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64
-    dest: ~/opt/lagoon-cli
-    state: link
-  - src: ~/opt/lagoon-cli/lagoon
+  - src: ~/bin/lagoon-cli
     dest: ~/bin/lagoon
+    state: link
+
+  - src: ~/bin/kube-no-trouble
+    dest: ~/bin/kubent
     state: link
 
   # Cloudflare Terraforming
@@ -137,33 +135,12 @@ wkstn_symlinks:
     dest: ~/bin/cf-terraforming
     state: link
 
-  # Kubepug
-  - src: ~/opt/kubepug-v1.4.0
-    dest: ~/opt/kubepug
-    state: link
-  - src: ~/opt/kubepug/kubepug
-    dest: ~/bin/kubepug
-    state: link
-
-  # eksctl
-  - src: ~/opt/eksctl-{{ lookup('pipe', 'curl -s https://api.github.com/repos/weaveworks/eksctl/releases/latest | jq -r ".tag_name"') }}
-    dest: ~/opt/eksctl
-    state: link
-  - src: ~/opt/eksctl/eksctl
-    dest: ~/bin/eksctl
-    state: link
-
   # terraform
   - src: ~/opt/terraform-1.5.0
     dest: ~/opt/terraform
     state: link
   - src: ~/opt/terraform/terraform
     dest: ~/bin/terraform
-    state: link
-
-  # stern
-  - src: ~/opt/stern/1.28.0/stern
-    dest: ~/bin/stern
     state: link
 
 # Uncompressed/unzipped raw binaries
