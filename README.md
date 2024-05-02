@@ -11,7 +11,7 @@ An Ansible playbook (and role) which installs most of the software I use (on an 
 
 ## Assumptions
 
-I have a brand-new Ubuntu flavored OS, with absolute stock defaults.
+You have a brand-new Ubuntu flavored OS, with absolute stock defaults.
 
 
 ## How to use it
@@ -32,7 +32,7 @@ I have a brand-new Ubuntu flavored OS, with absolute stock defaults.
    sudo ./bootstrap recipes/Ubuntu_22.04
    ```
    * The bootstrap script installs ansible, downloads the contrib roles specified in `galaxy/requirements.yml`, and runs `ansible-playbook` for the recipe you chose.
-   * The script should be run with `sudo`, as opposed to logging in as root.
+   * The script should be run with `sudo`, as opposed to logging in as root, because some of the stuff installed will be to your own ~/bin directory.
 
 
 ## Followup
