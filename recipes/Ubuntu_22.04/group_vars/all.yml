@@ -117,6 +117,11 @@ wkstn_zips:
     url: https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
     dest: ~/opt/terraform-1.9.5
 
+  - name: aws-sam-cli
+    url: https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
+    dest: /home/{{ regular_user }}/opt/aws-sam-cli-latest
+
+
 
 wkstn_symlinks:
   - src: ~/bin/lagoon-cli
@@ -144,7 +149,7 @@ wkstn_symlinks:
     state: link
 
 # Uncompressed/unzipped raw binaries
-wkstn_standalone_binaries:
+wkstn_standalone_binaries: []
 #  - name: Terragrunt
 #    url: https://github.com/gruntwork-io/terragrunt/releases/download/v0.44.0/terragrunt_linux_amd64
 #    dest: ~/bin/terragrunt

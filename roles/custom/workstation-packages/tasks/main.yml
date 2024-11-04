@@ -90,6 +90,7 @@
   tags:
     - zip
     - zips
+    - wkstn_zips
 
 - name: Fetch software from wkstn_zips
   become_user: "{{ regular_user }}"
@@ -101,6 +102,7 @@
   tags:
     - zip
     - zips
+    - wkstn_zips
 
 - name: Download non-github standalone binaries specified in the "wkstn_standalone_binaries" list. 
     If a given binary comes from GitHub, use "wkstn_github_install_release" instead.
