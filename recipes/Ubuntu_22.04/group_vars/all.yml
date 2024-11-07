@@ -95,6 +95,7 @@ wkstn_github_install_release:
   - repo: https://github.com/uselagoon/lagoon-cli  # @TODO: Link as 'lagoon'
 
 
+terraform_version: "1.9.8"
 wkstn_zips:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
@@ -114,8 +115,8 @@ wkstn_zips:
     dest: ~/opt/cf-terraforming-v0.10.0
 
   - name: terraform
-    url: https://releases.hashicorp.com/terraform/1.9.5/terraform_1.9.5_linux_amd64.zip
-    dest: ~/opt/terraform-1.9.5
+    url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest: ~/opt/terraform-{{ terraform_version }}
 
   - name: aws-sam-cli
     url: https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
@@ -141,7 +142,7 @@ wkstn_symlinks:
     state: link
 
   # terraform
-  - src: ~/opt/terraform-1.9.5
+  - src: ~/opt/terraform-{{ terraform_version }}
     dest: ~/opt/terraform
     state: link
   - src: ~/opt/terraform/terraform
