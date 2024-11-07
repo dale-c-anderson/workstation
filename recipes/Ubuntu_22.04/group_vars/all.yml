@@ -96,31 +96,35 @@ wkstn_github_install_release:
 
 
 terraform_version: "1.9.8"
-wkstn_zips:
+
+zip_keepass:
   - name: KeePass
     url: https://sourceforge.net/projects/keepass/files/KeePass%202.x/2.52/KeePass-2.52.zip/download
     dest: ~/opt/keepass
-
-  - name: LagoonCLI
-    url: https://github.com/uselagoon/lagoon-cli/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64.tar.gz
-    dest: ~/opt  # It unzips to its own versioned subfolder
-
-#  - name: Dropbox .... nah. Its a manual install any way you slice it.
-#    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
-#    dest: ~/opt/dropbox
-
+zip_cft:
   - name: Cloudflare Terraforming
     url: https://github.com/cloudflare/cf-terraforming/releases/download/v0.10.0/cf-terraforming_0.10.0_linux_amd64.tar.gz
     checksum: sha256:160aa81c9614b32a7211ba3eaab01d916ce5f0795afc3ee32151cda8f79fd65b
     dest: ~/opt/cf-terraforming-v0.10.0
-
-  - name: terraform
-    url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
-    dest: ~/opt/terraform-{{ terraform_version }}
-
+zip_sam:
   - name: aws-sam-cli
     url: https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip
     dest: /home/{{ regular_user }}/opt/aws-sam-cli-latest
+zip_tf:
+  - name: terraform
+    url: https://releases.hashicorp.com/terraform/{{ terraform_version }}/terraform_{{ terraform_version }}_linux_amd64.zip
+    dest: ~/opt/terraform-{{ terraform_version }}
+zip_lagoon:
+  - name: LagoonCLI
+    url: https://github.com/uselagoon/lagoon-cli/releases/download/{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}/lagoon-cli-{{ lookup('pipe', 'curl -Ss https://api.github.com/repos/uselagoon/lagoon-cli/releases/latest |jq -r .tag_name') }}-linux-amd64.tar.gz
+    dest: ~/opt  # It unzips to its own versioned subfolder
+
+wkstn_zips: "{{ zip_keepass + zip_cft + zip_sam + zip_tf + zip_lagoon }}"
+#  - name: Dropbox .... nah. Its a manual install any way you slice it.
+#    url: "https://www.dropbox.com/download?plat=lnx.x86_64"
+#    dest: ~/opt/dropbox
+
+
 
 
 
